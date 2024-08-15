@@ -1,11 +1,14 @@
-// Real-time listener for chat messages
-db.collection('messages').orderBy('timestamp').onSnapshot(snapshot => {
-    const messageList = document.getElementById('messageList');
-    messageList.innerHTML = '';
-    snapshot.forEach(doc => {
-        const message = doc.data().text;
-        const li = document.createElement('li');
-        li.textContent = message;
-        messageList.appendChild(li);
+function sendMessage(message) {
+    db.collection('messages').add({
+        text: message,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        sender: auth.currentUser.uid
+    })
+    .then(() => {
+        console.log("Message sent successfully!");
+    })
+    .catch(error => {
+        console.error("Error sending message: ", error);
+        alert("Failed to send message. Please try again later.");
     });
-});
+}

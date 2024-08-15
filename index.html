@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massage Booking and Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Massage Booking Service</h1>
+        <div id="authSection">
+            <div id="userDetails"></div>
+            <div id="authForms">
+                <div id="signupForm">
+                    <h2>Sign Up</h2>
+                    <input type="email" id="signupEmail" placeholder="Email">
+                    <input type="password" id="signupPassword" placeholder="Password">
+                    <button onclick="signUp()">Sign Up</button>
+                </div>
+                <div id="loginForm">
+                    <h2>Log In</h2>
+                    <input type="email" id="loginEmail" placeholder="Email">
+                    <input type="password" id="loginPassword" placeholder="Password">
+                    <button onclick="logIn()">Log In</button>
+                </div>
+            </div>
+            <button id="logoutButton" onclick="logOut()">Log Out</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="booking">
+            <h2>Book a Massage</h2>
+            <form id="bookingForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="text" id="service" placeholder="Service" required>
+                <button type="submit">Book Now</button>
+            </form>
+        </section>
+
+        <section id="chat">
+            <h2>Chat with Us</h2>
+            <div id="chatBox">
+                <ul id="messageList"></ul>
+            </div>
+            <form id="messageForm">
+                <input type="text" id="messageInput" placeholder="Type a message" required>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
